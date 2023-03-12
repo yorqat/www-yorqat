@@ -16,3 +16,6 @@ jobs:
         - name: Build node app
           run: npm ci
           run: npm run build
+        - name: Test node app
+          run: npx playwright install
+          run: npm run test
