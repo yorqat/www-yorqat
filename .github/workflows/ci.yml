@@ -13,7 +13,6 @@ jobs:
           uses: actions/setup-node@v3.6.0
           with:
             node-version: 19.6.0
-        - name: Install deps
-          run: npm ci
         - name: Build node app
+          run: npm ci
           run: npm run build
