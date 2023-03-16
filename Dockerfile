@@ -1,9 +1,9 @@
-FROM --platform=arm64 node:latest
+FROM --platform=arm64 node:19-alpine3.16
  
 WORKDIR /app
 COPY package.json ./
 
-RUN npm ci
+RUN npm i
 
 COPY . .
 
