@@ -10,6 +10,6 @@ jobs:
         - name: Checkout from repo
           uses: actions/checkout@v3
         - name: Build with docker
-          run: docker build -t ${{ secrets.PRIV_REPO }}/sites/yorqat:latest
-        - name: Push
+          run: docker build -t ${{ secrets.PRIV_REPO }}/sites/yorqat:latest .
+        - name: Push to private repo
           run: docker push ${{ secrets.PRIV_REPO }}/sites/yorqat:latest
