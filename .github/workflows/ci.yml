@@ -19,5 +19,4 @@ jobs:
             npm run build
         - name: Test node app
           run: | 
-            npx playwright install
             npm run test
