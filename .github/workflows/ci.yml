@@ -20,4 +20,5 @@ jobs:
         - name: Test node app
           run: | 
             npx playwright install 
+            npx playwright install-deps  
             npm run test
