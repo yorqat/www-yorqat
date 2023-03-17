@@ -3,21 +3,17 @@ on:
 
 jobs:
   ingress:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     - name: Setup kubectl
-      run: |
-        apt-get update
-        apt-get install -y ca-certificates curl
-        curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
-        echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-        apt-get update
-        apt-get install -y kubectl gettext-base
+      uses: azure/setup-kubectl@v3
+      with:
+        version: '1.15.0'
+      id: install
     - name: Create kube config
       run: |
         mkdir ${HOME}/.kube
         echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
     - name: Apply ingress
       run: |
-        echo "$(envsubst < k8s/ingress.yml)" > nu-ingress.yml
-        kubectl apply -f nu-ingress.yml
+        envsubst < k8s/ingress.yml | kubectl apply -f -
