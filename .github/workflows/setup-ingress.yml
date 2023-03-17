@@ -1,0 +1,14 @@
+on: 
+  workflow_dispatch
+
+jobs:
+  ingress:
+    runs-on: self-hosted
+    steps:
+    - name: Create kube config
+      run: |
+        mkdir ${HOME}/.kube
+        echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
+    - name: Apply ingress
+      run: |
+        envsubst < k8s/ingress.yml | kubectl apply -f -
