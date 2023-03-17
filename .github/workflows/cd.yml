@@ -19,6 +19,11 @@ jobs:
             echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
             apt-get update
             apt-get install -y kubectl
+        - name: Create kube config
+          run: |
+            # Install our k8s credentials
+            mkdir ${HOME}/.kube
+            echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > ${HOME}/.kube/config
         - name: Up the deployment
           run: |
             export PRIV_REPO=${{ secrets.PRIV_REPO }}
