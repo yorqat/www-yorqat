@@ -13,3 +13,13 @@ jobs:
           run: docker build -t ${{ secrets.PRIV_REPO }}/sites/yorqat:latest .
         - name: Push to private repo
           run: docker push ${{ secrets.PRIV_REPO }}/sites/yorqat:latest
+        - name: Setup kubectl
+          run: |
+            curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+            echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+            apt-get update
+            apt-get install -y kubectl
+        - name: Up the deployment
+          run: |
+            export PRIV_REPO=${{ secrets.PRIV_REPO }}
+            envsubst < k8s/deploy.yml | kubectl apply -f -

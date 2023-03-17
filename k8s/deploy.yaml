@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: www-yorqat
+spec:
+  selector:
+    matchLabels:
+      app: www-yorqat
+  template:
+    metadata:
+      labels:
+        app: www-yorqat
+    spec:
+      containers:
+      - name: www-yorqat
+        image: $PRIV_REPO/sites/yorqat:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
