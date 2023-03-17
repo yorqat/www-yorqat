@@ -6,9 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout k8s yaml
-      uses: Bhacaz/checkout-files@v2
-      with:
-        files: k8s/
+      uses: actions/checkout@v3
     - name: Setup kubectl
       uses: azure/setup-kubectl@v3
       id: install
