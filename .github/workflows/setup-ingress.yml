@@ -19,5 +19,7 @@ jobs:
         echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > ${HOME}/.kube/config
     - name: Apply ingress
       run: |
+        # To substitute yaml file with envsubst, secret needs 
+        # to be re-exported to a bash variable
         export DOMAIN_NAME="${{ secrets.DOMAIN_NAME }}"
         envsubst < k8s/ingress.yml | kubectl apply -f -
