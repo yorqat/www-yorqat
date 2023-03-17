@@ -26,5 +26,7 @@ jobs:
             echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > ${HOME}/.kube/config
         - name: Up the deployment
           run: |
-            export PRIV_REPO=${{ secrets.PRIV_REPO }}
+            # To substitute yaml file with envsubst, secret needs 
+            # to be re-exported to a bash variable
+            export PRIV_REPO="${{ secrets.PRIV_REPO }}"
             envsubst < k8s/deploy.yml | kubectl apply -f -
