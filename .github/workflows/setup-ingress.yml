@@ -5,6 +5,10 @@ jobs:
   ingress:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout k8s yaml
+      uses: Bhacaz/checkout-files@v2
+      with:
+        files: k8s/
     - name: Setup kubectl
       uses: azure/setup-kubectl@v3
       id: install
