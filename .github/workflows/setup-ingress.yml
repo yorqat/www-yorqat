@@ -3,13 +3,16 @@ on:
 
 jobs:
   ingress:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
     - name: Checkout k8s yaml
       uses: actions/checkout@v3
     - name: Setup kubectl
-      uses: azure/setup-kubectl@v3
-      id: install
+      run: |
+        curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+        echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+        apt-get update
+        apt-get install -y kubectl
     - name: Create kube config
       run: |
         mkdir ${HOME}/.kube
