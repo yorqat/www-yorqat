@@ -7,8 +7,6 @@ jobs:
     steps:
     - name: Setup kubectl
       uses: azure/setup-kubectl@v3
-      with:
-        version: '1.15.0'
       id: install
     - name: Create kube config
       run: |
