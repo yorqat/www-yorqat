@@ -38,7 +38,7 @@
 		// scroll background pattern depending on
 		// hovered menu item
 		> #menu-background-pattern {
-			background-position: 0% calc(-20% * (var(--active-index, 0) + 1));
+			background-position: 0% calc(-40% * (var(--active-index, 0) + 1));
 		}
 
 		> #menu-background-image {
