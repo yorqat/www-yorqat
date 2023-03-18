@@ -67,7 +67,7 @@
 		}
 
 		&:hover ~ #menu-background-image {
-			background-size: 145vmax 100vmax;
+			background-size: 170vmax 120vmax;
 			opacity: 0.10;
 		}
 	}
