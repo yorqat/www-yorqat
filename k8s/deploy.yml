@@ -15,6 +15,7 @@ spec:
       containers:
       - name: www-yorqat
         image: $PRIV_REPO/sites/yorqat:latest
+        imagePullPolicy: Always
         resources:
           limits:
             memory: "128Mi"
