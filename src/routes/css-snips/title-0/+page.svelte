@@ -65,7 +65,7 @@
 		}
 
 		&:hover ~ #menu-background-image {
-			background-size: 110vmax 100vmax;
+			background-size: 145vmax 100vmax;
 			opacity: 0.10;
 		}
 	}
@@ -115,7 +115,7 @@
 		z-index: 0;
 		
 		background-position: center 40%;
-		background-size: 120vmax 110vmax;
+		background-size: 160vmax 110vmax;
 		opacity: 0.15;
 
 		transition: opacity 800ms ease,
