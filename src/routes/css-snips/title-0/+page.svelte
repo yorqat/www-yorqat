@@ -65,7 +65,7 @@
 		}
 
 		&:hover ~ #menu-background-image {
-			background-size: 100vmax;
+			background-size: 110vmax 100vmax;
 			opacity: 0.10;
 		}
 	}
@@ -106,16 +106,16 @@
 	#menu-background-image {
 		height: 100%;
 		width: 100%;
-
+		
 		background-image: url("$lib/images/medium.jpg");
-
+		
 		position: absolute;
 		left: 0px;
 		top: 0px;
 		z-index: 0;
-
+		
 		background-position: center 40%;
-		background-size: 110vmax;
+		background-size: 120vmax 110vmax;
 		opacity: 0.15;
 
 		transition: opacity 800ms ease,
