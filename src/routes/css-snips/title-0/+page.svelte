@@ -4,6 +4,8 @@
 </svelte:head>
 
 <script lang="ts">
+	import '../../styles.css';
+	
 	let menu: HTMLElement;
 
 	function menu_idx(index: string) {
