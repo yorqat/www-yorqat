@@ -2,7 +2,7 @@ FROM --platform=arm64 node:19.8-alpine3.16 AS builder
  
 WORKDIR /app
 COPY package.json ./
-RUN npm i
+RUN npm ci
 COPY . .
 RUN npm run build
 
