@@ -6,7 +6,7 @@
 <section id="backstage" on:mousemove={move}>
     <div class="heading">
         <h1>MAYDAY</h1>
-        <p><strong>No one</strong> shall be subjected to arbitrary arrest, detention or exile. Everyone is <strong>entitled</strong> in full equality to a fair and public hearing by an <strong>independent and impartial tribunal</strong>, in the determination of his rights and obligations and of any criminal charge against him. No one shall be subjected to <strong>arbitrary interference</strong> with his privacy, family, home or correspondence, nor to attacks upon his honour and reputation.</p>
+        <p><strong>No one</strong> shall be subjected to arbitrary arrest, detention or exile.</p>
     </div>
     <div id="lightup" bind:this={lightup}></div>
     <div id="lightup-blur"></div>
@@ -69,7 +69,7 @@
         }
 
         p {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             font-family: 'Abel', sans-serif;
             text-align: justify;
 
