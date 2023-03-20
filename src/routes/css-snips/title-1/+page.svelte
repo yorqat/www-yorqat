@@ -86,7 +86,7 @@
     }
 
     #lightup {
-        background: linear-gradient(90deg, rgba(34,193,195,1) 0%, rgba(220,151,112,1) 65%, rgba(253,187,45,1) 100%);
+        background: linear-gradient(90deg, rgba(34,193,195,1) 0%, rgba(139,190,123,0.5872549703475141) 49%, rgba(253,187,45,1) 100%);
         height: 500px;
         aspect-ratio: 1;
 
