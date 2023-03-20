@@ -1,3 +1,8 @@
+<svelte:head>
+	<title>A nice card</title>
+	<meta name="description" content="Just a blob that follows you around" />
+</svelte:head>
+
 <section id="backstage" on:mousemove={move}>
     <div class="heading">
         <h1>MAYDAY</h1>
