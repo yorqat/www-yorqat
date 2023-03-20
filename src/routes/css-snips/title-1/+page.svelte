@@ -83,6 +83,7 @@
         background-color: black;
         height: 100vh;
         position: relative;
+        overflow: hidden;
     }
 
     #lightup {
@@ -97,7 +98,7 @@
         z-index: 1;
 
         // Just the starting position
-        left: 80%;
+        // left: 80%;
 
         &-blur {
             height: 100%;
