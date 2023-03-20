@@ -1,0 +1,4 @@
+.github
+.svelte-kit
+k8s
+node_modules
