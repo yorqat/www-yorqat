@@ -8,6 +8,7 @@
 
 <section>
 	<a href="css-snips/title-0">Title 0</a>
+	<a href="css-snips/title-1">Title 1</a>
 </section>
 
 <style>
