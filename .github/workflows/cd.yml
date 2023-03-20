@@ -11,7 +11,6 @@ jobs:
           uses: actions/checkout@v3
         - name: Build and push
           run: |
-            alias docker="docker -H lens"
             docker build -t ${{ secrets.PRIV_REPO }}/sites/yorqat:latest .
             docker push ${{ secrets.PRIV_REPO }}/sites/yorqat:latest
             # Current limitation of docker not being inside the cotainer
