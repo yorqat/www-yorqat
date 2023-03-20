@@ -6,10 +6,41 @@
 	<meta name="description" content="Web design Quickies" />
 </svelte:head>
 
-<section>
-	<a href="css-snips/title-0">Title 0</a>
-	<a href="css-snips/title-1">Title 1</a>
+<section id="backstage">
+	<div class="snips" >
+		<a href="css-snips/title-0">
+			<iframe src="css-snips/title-0" title=""></iframe>
+		</a>
+		<a href="css-snips/title-1">
+			<iframe src="css-snips/title-1" title=""></iframe>
+		</a>
+	</div>
 </section>
 
 <style>
+	#backstage {
+		background-color: rgb(46, 40, 49);
+		height: 100vh;
+	}
+
+	a {
+		display: block;
+	}
+
+	a iframe {
+		pointer-events: none;
+		width: 100%;
+		height: 20rem;
+	}
+
+	.snips {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		height: 100%;
+		gap: 3em;
+
+		/* padding: 1em; */
+		background-color: rgb(41, 35, 44);
+	}
 </style>
