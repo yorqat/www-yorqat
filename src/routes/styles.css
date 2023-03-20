@@ -1,9 +1,9 @@
 a {
-	color:rgb(233, 32, 116);
+	color:rgb(167, 115, 220);
 	text-decoration: none;
 }
 
 body {
 	margin: 0;
-	overflow: hidden;
+	/* overflow: hidden; */
 }
