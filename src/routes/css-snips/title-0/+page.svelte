@@ -17,9 +17,13 @@
 
 <section id="menu" bind:this={menu}>
 	<div id="menu-items">
+		<!-- svelte-ignore a11y-mouse-events-have-key-events -->
 		<a href="#menu" on:mouseover={menu_idx("0")} class="menu-item">Recipes</a>
+		<!-- svelte-ignore a11y-mouse-events-have-key-events -->
 		<a href="#menu" on:mouseover={menu_idx("1")} class="menu-item">Cottagecore</a>
+		<!-- svelte-ignore a11y-mouse-events-have-key-events -->
 		<a href="#menu" on:mouseover={menu_idx("2")} class="menu-item">Meetups</a>
+		<!-- svelte-ignore a11y-mouse-events-have-key-events -->
 		<a href="#menu" on:mouseover={menu_idx("3")} class="menu-item">Guild</a>
 	</div>
 	<div id="menu-background-pattern"></div>
