@@ -29,7 +29,7 @@ jobs:
         - name: Up the deployment
           run: |
             # Delete the current deployment
-            kubectl delete deploy www-yorqat
+            kubectl delete deploy www-yorqat -n default
             # To substitute yaml file with envsubst, secret needs 
             # to be re-exported to a bash variable
             export PRIV_REPO="${{ secrets.PRIV_REPO }}"
