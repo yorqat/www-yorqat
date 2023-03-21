@@ -57,7 +57,7 @@
 
 	#home {
 		color: aliceblue;
-		background-color: rgb(26, 26, 29);
+		background: linear-gradient(0deg, rgba(92,67,99,1) 2%, rgba(26,26,29,1) 35%); 
 		min-height: 100svh;
 
 		.home-landing {
