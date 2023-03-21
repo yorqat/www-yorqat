@@ -25,22 +25,18 @@
 
 	a {
 		display: block;
+		padding: 2em;
 	}
 
 	a iframe {
 		pointer-events: none;
 		width: 100%;
-		height: 20rem;
+		aspect-ratio: 16 /9;
 	}
 
 	.snips {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
 		height: 100%;
-		gap: 3em;
-
-		/* padding: 1em; */
+		padding: 2em;
 		background-color: rgb(41, 35, 44);
 	}
 </style>
