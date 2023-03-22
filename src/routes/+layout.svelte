@@ -13,4 +13,8 @@
         --clr-secondary: rgb(10, 9, 11);
         --clr-accent-0: rgb(209, 129, 209);
     }
+
+    * {
+        box-sizing: border-box;
+    }
 </style>
