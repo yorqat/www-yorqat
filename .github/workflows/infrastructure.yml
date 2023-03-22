@@ -11,10 +11,10 @@ jobs:
           uses: actions/checkout@v3
         - name: Build and push
           run: |
-            docker build -t ${{ secrets.PRIV_REPO }}/sites/yorqat:latest .
-            docker push ${{ secrets.PRIV_REPO }}/sites/yorqat:latest
+            docker build -t ${{ secrets.OCI_IMAGE }}:latest .
+            docker push ${{ secrets.OCI_IMAGE }}:latest
             # Current limitation of docker not being inside the cotainer
-            # docker rmi ${{ secrets.PRIV_REPO }}/sites/yorqat:latest
+            # docker rmi ${{ secrets.OCI_IMAGE }}:latest
         - name: Setup kubectl
           run: |
             curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
@@ -32,5 +32,5 @@ jobs:
             kubectl delete deploy www-yorqat -n sites
             # To substitute yaml file with envsubst, secret needs 
             # to be re-exported to a bash variable
-            export PRIV_REPO="${{ secrets.PRIV_REPO }}"
+            export OCI_IMAGE="${{ secrets.OCI_IMAGE }}"
             envsubst < k8s/deploy.yml | kubectl apply -f -
