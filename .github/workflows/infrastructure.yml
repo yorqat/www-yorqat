@@ -29,10 +29,10 @@ jobs:
           run: |
             # Required to execute alias commands
             shopt -s expand_aliases
-            alias kubectl="docker run -v ${HOME}/.kube/config:/.kube/config --rm bitnami/kubectl:1.26.3-debian-11-r0"
+            # alias kubectl="docker run -v ${HOME}/.kube/config:/.kube/config --rm bitnami/kubectl:1.26.3-debian-11-r0"
             # Delete the current deployment
-            kubectl delete deploy www-yorqat -n sites
+            docker run -v ${HOME}/.kube/config:/.kube/config --rm bitnami/kubectl:1.26.3-debian-11-r0 delete deploy www-yorqat -n sites
             # To substitute yaml file with envsubst, secret needs 
             # to be re-exported to a bash variable
-            export OCI_IMAGE="${{ secrets.OCI_IMAGE }}"
-            envsubst < k8s/deploy.yml | kubectl apply -f -
+            # export OCI_IMAGE="${{ secrets.OCI_IMAGE }}"
+            # envsubst < k8s/deploy.yml | kubectl apply -f -
