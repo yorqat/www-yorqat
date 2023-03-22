@@ -4,8 +4,10 @@ on:
       - master
       - 'releases/**'
 jobs:
-  build:
+  deploy:
     runs-on: self-hosted
+    container:
+      image: bitnami/kubectl:1.26.3-debian-11-r0
     steps:
         - name: Checkout from repo
           uses: actions/checkout@v3
@@ -15,12 +17,12 @@ jobs:
             docker push ${{ secrets.OCI_IMAGE }}:latest
             # Current limitation of docker not being inside the cotainer
             # docker rmi ${{ secrets.OCI_IMAGE }}:latest
-        - name: Setup kubectl
-          run: |
-            curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
-            echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-            apt-get update
-            apt-get install -y kubectl
+        # - name: Setup kubectl
+        #   run: |
+        #     curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+        #     echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+        #     apt-get update
+        #     apt-get install -y kubectl
         - name: Create kube config
           run: |
             # Install our k8s credentials
