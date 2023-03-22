@@ -10,7 +10,7 @@ jobs:
       image: bitnami/kubectl:1.26.3-debian-11-r0
     steps:
         - name: Checkout from repo
-          uses: actions/checkout@v3
+          uses: actions/checkout@v2.3.2
         - name: Build and push
           run: |
             docker build -t ${{ secrets.OCI_IMAGE }}:latest .
