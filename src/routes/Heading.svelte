@@ -8,6 +8,8 @@
 </div>
 
 <style lang="scss">
+	@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
     a {
         color: var(--clr-text);
     }
