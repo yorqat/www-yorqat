@@ -30,7 +30,7 @@ jobs:
           run: |
             # Required to execute alias commands
             shopt -s expand_aliases
-            alias kubectl="docker run -v ${HOME}/.kube/config:/.kube/config --rm bitnami/kubectl:1.26.3-debian-11-r0"
+            alias kubectl="docker run -v ${HOME}/.kube/:/.kube/ --rm bitnami/kubectl:1.26.3-debian-11-r0"
             # Delete the current deployment
             kubectl delete deploy www-yorqat -n sites
             # To substitute yaml file with envsubst, secret needs 
