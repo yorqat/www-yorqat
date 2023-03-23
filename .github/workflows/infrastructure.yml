@@ -15,12 +15,12 @@ jobs:
             docker push ${{ secrets.OCI_IMAGE }}:latest
             # Current limitation of docker not being inside the cotainer
             # docker rmi ${{ secrets.OCI_IMAGE }}:latest
-        # - name: Setup kubectl
-        #   run: |
-        #     curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
-        #     echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-        #     apt-get update
-        #     apt-get install -y kubectl
+        - name: Setup kubectl
+          run: |
+            curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+            echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+            apt-get update
+            apt-get install -y kubectl
         - name: Create kube config
           run: |
             mkdir ${HOME}/.kube
@@ -28,11 +28,11 @@ jobs:
         - name: Up the deployment
           run: |
             # Required to execute alias commands
-            shopt -s expand_aliases
+            # shopt -s expand_aliases
             # alias kubectl="docker run -v ${HOME}/.kube/config:/.kube/config --rm bitnami/kubectl:1.26.3-debian-11-r0"
             # Delete the current deployment
-            docker run -v ${HOME}/.kube/config:/.kube/config --rm bitnami/kubectl:1.26.3-debian-11-r0 delete deploy www-yorqat -n sites
+            # docker run -v ${HOME}/.kube/config:/.kube/config --rm bitnami/kubectl:1.26.3-debian-11-r0 delete deploy www-yorqat -n sites
             # To substitute yaml file with envsubst, secret needs 
             # to be re-exported to a bash variable
-            # export OCI_IMAGE="${{ secrets.OCI_IMAGE }}"
-            # envsubst < k8s/deploy.yml | kubectl apply -f -
+            export OCI_IMAGE="${{ secrets.OCI_IMAGE }}"
+            envsubst < k8s/deploy.yml | kubectl apply -f -
