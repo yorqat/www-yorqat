@@ -4,8 +4,6 @@
 </svelte:head>
 
 <script lang="ts">
-	import '../../styles.css';
-	
 	let menu: HTMLElement;
 
 	function menu_idx(index: string) {
@@ -35,7 +33,6 @@
 
 	#menu {
 		background-color: rgb(20, 20, 20);
-		height: 100vh;
 		display: flex;
 		align-items: center;
 

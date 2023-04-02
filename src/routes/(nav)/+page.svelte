@@ -1,5 +1,4 @@
 <script>
-	import './styles.css';
 	import landing_img from '$lib/images/hacker.jpg';
 </script>
 
@@ -8,13 +7,14 @@
 	<meta name="description" content="Live showcase of CSS debauchery" />
 </svelte:head>
 
-<section id="intro">
-</section>
 <section id="home">
+	<div class="home-intro">
+		<!-- <h1 class="hero">Yor Qat</h1> -->
+	</div>
 	<div class="home-landing">
 		<!-- <img class="home-landing__banner" src={landing_img} alt="hacker" /> -->
 	</div>
-	<div class="home-tagline diagonal">
+	<div class="home-tagline">
 		<div class="home-tagline__grid">
 			<h1 class="home-tagline__content">
 				Quick<br />features?<br />neat!
@@ -66,95 +66,69 @@
 
 <style lang="scss">
 	@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&display=swap');
-	@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap');
-	@import url('https://fonts.googleapis.com/css2?family=Autour+One&display=swap');
 	@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
-	@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-	@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 	@import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@800&display=swap');
 	
-
+	#home {
+		color: var(--clr-text);
+		background: linear-gradient(-15deg, rgba(92, 67, 99, 1) 1%, rgba(26, 26, 29, 1) 55%);
+		// min-height: 100svh;
+	}
+	
 	::selection {
 		color: var(--clr-primary);
-		background-color: aliceblue;
-	}
-
-	.diagonal {
-		position: relative;
-		isolation: isolate;
-	}
-
-	.diagonal::after {
-		content: '';
-		background: linear-gradient(
-			0deg,
-			rgba(17, 17, 20, 1) 0%,
-			rgba(17, 17, 21, 1) 10%,
-			rgba(10, 9, 11, 1) 19%,
-			rgba(10, 9, 11, 1) 53%,
-			rgba(10, 9, 1, 1) 98%,
-			rgba(17, 17, 21, 1) 100%
-		);
-
-		position: absolute;
-		inset: 0;
-		transform: skewY(-15deg);
-		z-index: -1;
+		background-color: var(--clr-text);
 	}
 
 	.home-tagline {
-		padding-block: 0rem;
-		padding-inline: clamp(2em, 10vw, 10em);
+		&::after {
+			content: '';
+			background: linear-gradient(
+				5deg,
+				rgba(17, 17, 20, 1) 0%,
+				rgba(17, 17, 21, 1) 10%,
+				rgba(10, 9, 11, 1) 19%,
+				rgba(10, 9, 11, 1) 53%,
+				rgba(10, 9, 1, 1) 98%,
+				rgba(17, 17, 21, 1) 100%
+			);
+
+			position: absolute;
+			inset: 0;
+			transform: skewY(-15deg);
+			z-index: -1;
+			height: 40em;
+		}
+
 		display: grid;
 		place-items: center;
-		padding-block: 5em;
-
+		width: 100%;
+		position: relative;
+		isolation: isolate;
+		
 		.home-tagline__grid {
-			
-			
+			margin-inline: clamp(3em, 5vw, 5em);
+
 			.home-tagline__content {
-				// padding-top: 5rem;
-				// line-height: 3rem;
 				font-family: 'Martian Mono', monospace;
-	
-				font-size: clamp(2rem, 5vw, 3.8rem);
+				font-size: clamp(3rem, 5vw, 3.8rem);
 				font-weight:700;
-	
-	
-				grid-area: __content;
-				bottom: 0;
 			}
 	
 			.home-tagline__subtitle {
 				font-family: 'Poppins', sans-serif;
-				font-weight:100;
-				color: rgb(173, 173, 173);
 				font-size: clamp(0.8rem, 3vw, 1.2rem);
-	
-				grid-area: __subtitle;
+				font-weight:100;
 				text-align: right;
-				max-width: 30ch;
-			}
 
+				color: rgb(173, 173, 173);
+			}
 		}
 	}
 
-	#home {
-		color: var(--clr-text);
-		background: linear-gradient(0deg, rgba(92, 67, 99, 1) 2%, rgba(26, 26, 29, 1) 35%);
-		min-height: 100svh;
 
-		// .home-landing {
-		// 	background-color: black;
-		// 	position: relative;
-		// 	img {
-		// 		width: 100%;
-		// 		object-fit: cover;
-		// 	}
-		// }
-
-		.home-nav {
+	.home-nav {
 			display: flex;
 			gap: 1rem;
 			flex-wrap: wrap;
@@ -162,11 +136,14 @@
 			padding-bottom: 4rem;
 			z-index: 50;
 
-			&__card {
+			.home-nav__card {
+				&:hover {
+					border: 4px solid var(--clr-primary);
+				}
+
 				width: clamp(10em, 30vw, 12em);
 				border-radius: 16px;
-				border: 3px solid var(--clr-primary);
-				// box-shadow: 2px 3px 10px rgba(204, 122, 204, 0.418);
+				border: 4px inset var(--clr-primary);
 				background: var(--clr-primary);
 
 				font-family: 'Chakra Petch', sans-serif;
@@ -176,7 +153,7 @@
 				align-items: center;
 				z-index: 3;
 
-				&__icon {
+				.home-nav__card__icon {
 					height: clamp(2.5rem, 10vw, 4rem);
 					vertical-align: -.125em;
 					filter: var(--fltr-link);
@@ -200,7 +177,6 @@
 				}
 
 				p {
-					// font-family: 'Inconsolata', monospace;
 					font-family: 'Abel', sans-serif;
 					font-weight: 900;
 					color: var(--clr-text-reading);
@@ -211,5 +187,4 @@
 				}
 			}
 		}
-	}
 </style>

@@ -8,11 +8,11 @@
 
 <section id="backstage">
 	<div class="snips" >
-		<a href="css-snips/title-0">
-			<iframe src="css-snips/title-0" title=""></iframe>
+		<a href="snips/title-0">
+			<iframe src="snips/title-0" title=""></iframe>
 		</a>
-		<a href="css-snips/title-1">
-			<iframe src="css-snips/title-1" title=""></iframe>
+		<a href="snips/title-1">
+			<iframe src="snips/title-1" title=""></iframe>
 		</a>
 	</div>
 </section>

@@ -13,7 +13,6 @@
 </section>
 
 <script lang="ts">
-	import '../../styles.css';
     let lightup: HTMLElement;
 
     function move(event: MouseEvent) {
