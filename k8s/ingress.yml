@@ -8,8 +8,8 @@ spec:
   selector:
     app: www-yorqat
   ports:
-  - port: 80
-    targetPort: 3000
+    - port: 80
+      targetPort: 3000
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress

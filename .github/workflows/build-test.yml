@@ -8,17 +8,17 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
-        - name: Checkout from repo
-          uses: actions/checkout@v3
-        - name: Setup Node.js environment
-          uses: actions/setup-node@v3.6.0
-          with:
-            node-version: 19.6.0
-        - name: Build node app
-          run: | 
-            npm ci
-            npm run build
-        - name: Test node app
-          run: | 
-            npx playwright install --with-deps chromium
-            npm run test
+      - name: Checkout from repo
+        uses: actions/checkout@v3
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version: 19.6.0
+      - name: Build node app
+        run: |
+          npm ci
+          npm run build
+      - name: Test node app
+        run: |
+          npx playwright install --with-deps chromium
+          npm run test

@@ -1,31 +1,32 @@
-<svelte:head>
-	<title>A nice menu</title>
-	<meta name="description" content="A menu I tried to rip straight from Hyperplexer" />
-</svelte:head>
-
 <script lang="ts">
 	let menu: HTMLElement;
 
 	function menu_idx(index: string) {
 		return () => {
-			menu.style.setProperty("--active-index", index);
-		}
+			menu.style.setProperty('--active-index', index);
+		};
 	}
 </script>
+
+<svelte:head>
+	<title>A nice menu</title>
+	<meta name="description" content="A menu I tried to rip straight from Hyperplexer" />
+	<link rel="stylesheet" lang="css" href="/exactly-100svh.css" />
+</svelte:head>
 
 <section id="menu" bind:this={menu}>
 	<div id="menu-items">
 		<!-- svelte-ignore a11y-mouse-events-have-key-events -->
-		<a href="#menu" on:mouseover={menu_idx("0")} class="menu-item">Recipes</a>
+		<a href="#menu" on:mouseover={menu_idx('0')} class="menu-item">Recipes</a>
 		<!-- svelte-ignore a11y-mouse-events-have-key-events -->
-		<a href="#menu" on:mouseover={menu_idx("1")} class="menu-item">Cottagecore</a>
+		<a href="#menu" on:mouseover={menu_idx('1')} class="menu-item">Cottagecore</a>
 		<!-- svelte-ignore a11y-mouse-events-have-key-events -->
-		<a href="#menu" on:mouseover={menu_idx("2")} class="menu-item">Meetups</a>
+		<a href="#menu" on:mouseover={menu_idx('2')} class="menu-item">Meetups</a>
 		<!-- svelte-ignore a11y-mouse-events-have-key-events -->
-		<a href="#menu" on:mouseover={menu_idx("3")} class="menu-item">Guild</a>
+		<a href="#menu" on:mouseover={menu_idx('3')} class="menu-item">Guild</a>
 	</div>
-	<div id="menu-background-pattern"></div>
-	<div id="menu-background-image"></div>
+	<div id="menu-background-pattern" />
+	<div id="menu-background-image" />
 </section>
 
 <style lang="scss">
@@ -35,6 +36,7 @@
 		background-color: rgb(20, 20, 20);
 		display: flex;
 		align-items: center;
+		height: 100%;
 
 		// scroll background pattern depending on
 		// hovered menu item
@@ -53,7 +55,7 @@
 		/* above #menu-background-pattern */
 		z-index: 2;
 
-		// 
+		//
 		&:hover > .menu-item {
 			opacity: 0.3;
 		}
@@ -69,7 +71,7 @@
 
 		&:hover ~ #menu-background-image {
 			background-size: 170vmax 120vmax;
-			opacity: 0.10;
+			opacity: 0.1;
 		}
 	}
 
@@ -87,12 +89,9 @@
 	#menu-background-pattern {
 		height: 100vh;
 		width: 100vw;
-		background-image: radial-gradient(
-			rgba(255, 255, 255, 0.1) 9%,
-			transparent 9%
-		);
+		background-image: radial-gradient(rgba(255, 255, 255, 0.1) 9%, transparent 9%);
 		background-position: 0% 0%;
-		background-size: 12vmin 12vmin; 
+		background-size: 12vmin 12vmin;
 
 		position: absolute;
 		left: 0;
@@ -101,28 +100,24 @@
 		/* below #menu-items */
 		z-index: 1;
 
-		transition: opacity 800ms ease,
-			background-position 600ms ease,
-			background-size 800ms ease;
+		transition: opacity 800ms ease, background-position 600ms ease, background-size 800ms ease;
 	}
 
 	#menu-background-image {
 		height: 100%;
 		width: 100%;
-		
-		background-image: url("$lib/images/medium.jpg");
-		
+
+		background-image: url('$lib/images/medium.jpg');
+
 		position: absolute;
 		left: 0px;
 		top: 0px;
 		z-index: 0;
-		
+
 		background-position: center 40%;
 		background-size: 160vmax 110vmax;
 		opacity: 0.15;
 
-		transition: opacity 800ms ease,
-			background-position 800ms ease,
-			background-size 800ms ease;
+		transition: opacity 800ms ease, background-position 800ms ease, background-size 800ms ease;
 	}
 </style>

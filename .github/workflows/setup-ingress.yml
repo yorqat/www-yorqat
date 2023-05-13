@@ -1,26 +1,25 @@
-on: 
-  workflow_dispatch
+on: workflow_dispatch
 
 jobs:
   ingress:
     runs-on: self-hosted
     steps:
-    - name: Checkout k8s yaml
-      uses: actions/checkout@v3
-    - name: Setup kubectl
-      run: |
-        curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
-        echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-        apt-get update
-        apt-get install -y kubectl
-    - name: Create kube config
-      run: |
-        # Install our k8s credentials
-        mkdir ${HOME}/.kube
-        echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > ${HOME}/.kube/config
-    - name: Apply ingress
-      run: |
-        # To substitute yaml file with envsubst, secret needs 
-        # to be re-exported to a bash variable
-        export DOMAIN_NAME="${{ secrets.DOMAIN_NAME }}"
-        envsubst < k8s/ingress.yml | kubectl apply -f -
+      - name: Checkout k8s yaml
+        uses: actions/checkout@v3
+      - name: Setup kubectl
+        run: |
+          curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+          echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+          apt-get update
+          apt-get install -y kubectl
+      - name: Create kube config
+        run: |
+          # Install our k8s credentials
+          mkdir ${HOME}/.kube
+          echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > ${HOME}/.kube/config
+      - name: Apply ingress
+        run: |
+          # To substitute yaml file with envsubst, secret needs 
+          # to be re-exported to a bash variable
+          export DOMAIN_NAME="${{ secrets.DOMAIN_NAME }}"
+          envsubst < k8s/ingress.yml | kubectl apply -f -
