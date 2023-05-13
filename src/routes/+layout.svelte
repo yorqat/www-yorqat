@@ -1,20 +1,16 @@
 <slot />
 
 <style>
-    :global(a) {
-        color:rgb(167, 115, 220);
-        text-decoration: none;
-    }
+	:global(a) {
+		/* remove link underline */
+		text-decoration: none;
+	}
 
-    :global(body) {
-        margin: 0;
-    }
+	:global(html, body) {
+		margin: 0em;
+	}
 
-    :global(section) {
-        min-height: 100svh;
-    }
-
-    :global(*) {
-        box-sizing: border-box; 
-    }
+	:global(*) {
+		box-sizing: border-box;
+	}
 </style>
