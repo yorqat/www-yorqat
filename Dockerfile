@@ -18,7 +18,7 @@ WORKDIR /app
 COPY package*.json ./
 COPY flake* ./
 
-RUN nix develop
+RUN nix --extra-experimental-features nix-command develop 
 RUN pnpm i
 COPY . .
 RUN pnpm run build
