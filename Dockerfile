@@ -1,7 +1,8 @@
 FROM --platform=arm64 node:19.8-alpine3.16 AS builder
  
 WORKDIR /app
-COPY package*.json ./
+COPY package.json ./
+COPY pnpm-lock.yaml ./
 RUN npm i -g pnpm
 RUN pnpm i
 COPY . .
