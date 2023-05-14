@@ -21,7 +21,7 @@
 		<!-- &lbrace; -->
 	</h1>
 	<h2 class="hero-desc">&#60;online presence designer /&#62;</h2>
-	<img style="display:none" class="hero-profile" src="/qat.png" alt="profile" />
+	<!-- <img style="display:none" class="hero-profile" src="/qat.png" alt="profile" /> -->
 </section>
 
 <section class="nav">
@@ -129,11 +129,6 @@
 		line-height: 1.5rem;
 		letter-spacing: 2px;
 		padding: 10px 20px;
-	}
-
-	.hero-profile {
-		display: inline-block;
-		height: 20em;
 	}
 
 	svg {
