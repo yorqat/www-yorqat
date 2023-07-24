@@ -110,7 +110,7 @@
 
 	.hero {
 		font-size: clamp(3.5rem, 10vw, 7rem);
-		font-family: 'Righteous', cursive;
+		font-family: 'Righteous', sans-serif;
 		letter-spacing: -2px;
 		line-height: 20px;
 	}
@@ -118,7 +118,7 @@
 	.hero-desc {
 		--herodesc-background: rgba(240, 248, 255, 0.62);
 
-		font-family: 'Bruno Ace SC', cursive;
+		font-family: 'Bruno Ace SC', sans-serif;
 		font-size: clamp(0.5rem, 3vw, 1.75rem);
 		font-weight: 100;
 		color: var(--clr-secondary);
