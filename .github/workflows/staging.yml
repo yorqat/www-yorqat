@@ -27,5 +27,5 @@ jobs:
       - name: Rsync to local staging server
         run: |
           echo "${{secrets.DEPLOY_SSH_KEY}}" > sshkey
-          rsync -e "ssh -i sshkey" --delete -avz build cornea:/pv/staging-www.yorqat.com.pvc
+          rsync -e "ssh -i sshkey" --delete -avz build pi@cornea:/mnt/state/pv/staging-www.yorqat.com.pvc
 
