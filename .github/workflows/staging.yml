@@ -26,6 +26,6 @@ jobs:
         uses:  GuillaumeFalourd/setup-rsync@v1.1
       - name: Rsync to local staging server
         run: |
-          echo "${{secrets.DEPLOY_SSH_KEY}}" > sshkey
+          echo "${{secrets.CORNEA_SSH_KEY}}" | base64 --decode > sshkey
           rsync -e "ssh -i sshkey" --delete -avz build pi@cornea:/mnt/state/pv/staging-www.yorqat.com.pvc
 
