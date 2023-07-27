@@ -28,5 +28,5 @@ jobs:
         run: |
           echo "${{secrets.CORNEA_SSH_KEY}}" | base64 --decode > /sshkey
           chmod 600 /sshkey
-          rsync -e "ssh -o StrictHostKeyChecking=no -i /sshkey" --delete -avz build pi@192.168.1.64:/mnt/state/pv/staging-www.yorqat.com.pvc
+          rsync -e "ssh -o StrictHostKeyChecking=no -i /sshkey" --delete -avz --verbose build pi@192.168.1.64:/mnt/state/pv/staging-www.yorqat.com.pvc
 
