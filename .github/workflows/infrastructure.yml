@@ -1,8 +1,9 @@
 on:
-  push:
-    branches:
-      - master
-      - 'releases/**'
+  workflow_dispatch
+  # push:
+  #   branches:
+  #     - master
+  #     - 'releases/**'
 jobs:
   deploy:
     runs-on: self-hosted
