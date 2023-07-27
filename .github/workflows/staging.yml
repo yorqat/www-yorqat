@@ -22,7 +22,8 @@ jobs:
         run: pnpm run build
       - name: Include package.json to build
         run: cp package.json build/
-      - name: Rsync to local staging server
+      - name: Install rsync  
         uses:  GuillaumeFalourd/setup-rsync@v1.1
+      - name: Rsync to local staging server
         run: rsync -e ${{secrets.DEPLOY_SSH_KEY}} --delete -avz build cornea:/pv/staging-www.yorqat.com.pvc
 
