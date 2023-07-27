@@ -18,11 +18,15 @@ jobs:
         run: npm install -g pnpm
       - name: Build node app
         run: pnpm install --force # clean install (not using cache)
-      # - name: Rsync to local staging server
-      #   uses: maddox/rsync-deployment@v1
-      #   with:
-      #     switches: '-avz --delete'  # Add any rsync options you need
-      #     remote_path: cornea:/
-      #   env:
-      #     RSYNC_PRIVATE_KEY: ${{ secrets.RSYNC_PRIVATE_KEY }}
-              
+      - name: Include package.json to build
+        run: cp package.json build/
+      - name: Rsync to local staging server
+        uses: Pendect/action-rsyncer@v1.1.0
+        env:
+          DEPLOY_KEY: ${{secrets.DEPLOY_KEY}}
+        with:
+          flags: '-avzr --delete'
+          options: ''
+          ssh_options: '-p 22'
+          src: 'build/'
+          dest: 'cornea:/pv/staging-www.yorqat.com.pvc'
