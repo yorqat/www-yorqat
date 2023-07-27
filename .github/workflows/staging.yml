@@ -14,10 +14,10 @@ jobs:
         uses: actions/setup-node@v3.6.0
         with:
           node-version: 19.9.0
+      - name: Install pnpm
+        run: npm install -g pnpm
       - name: Build node app
-        run: |
-          npm ci
-          npm run build
+        run: pnpm install --force # clean install (not using cache)
       # - name: Rsync to local staging server
       #   uses: maddox/rsync-deployment@v1
       #   with:
