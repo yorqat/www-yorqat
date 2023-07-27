@@ -21,12 +21,10 @@ jobs:
       - name: Include package.json to build
         run: cp package.json build/
       - name: Rsync to local staging server
-        uses: Pendect/action-rsyncer@v1.1.0
+        uses: up9cloud/action-rsync@master
         env:
-          DEPLOY_KEY: ${{secrets.DEPLOY_KEY}}
-        with:
-          flags: '-avzr --delete'
-          options: ''
-          ssh_options: '-p 22'
-          src: 'build/'
-          dest: 'cornea:/pv/staging-www.yorqat.com.pvc'
+          HOST: cornea
+          KEY: ${{secrets.DEPLOY_SSH_KEY}}
+          SOURCE: build/
+          TARGET: /pv/staging-www.yorqat.com.pvc
+          
