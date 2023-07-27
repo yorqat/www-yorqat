@@ -23,9 +23,6 @@ jobs:
       - name: Include package.json to build
         run: cp package.json build/
       - name: Rsync to local staging server
-        uses: up9cloud/action-rsync@master
-        env:
-          HOST: cornea
-          KEY: ${{secrets.DEPLOY_SSH_KEY}}
-          SOURCE: build/
-          TARGET: /pv/staging-www.yorqat.com.pvc
+        uses:  GuillaumeFalourd/setup-rsync@v1.1
+        run: rsync -e ${{secrets.DEPLOY_SSH_KEY}} --delete -avz build cornea:/pv/staging-www.yorqat.com.pvc
+
