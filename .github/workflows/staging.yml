@@ -16,8 +16,10 @@ jobs:
           node-version: 19.9.0
       - name: Install pnpm
         run: npm install -g pnpm
-      - name: Build node app
+      - name: Install dependencies
         run: pnpm install --force # clean install (not using cache)
+      - name: Build node app
+        run: pnpm run build
       - name: Include package.json to build
         run: cp package.json build/
       - name: Rsync to local staging server
@@ -27,4 +29,3 @@ jobs:
           KEY: ${{secrets.DEPLOY_SSH_KEY}}
           SOURCE: build/
           TARGET: /pv/staging-www.yorqat.com.pvc
-          
