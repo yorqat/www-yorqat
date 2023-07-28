@@ -38,4 +38,4 @@ jobs:
           echo "${{secrets.CLUSTER_CONF}}" | base64 --decode > /config
           chmod 600 /config
           ls /config
-          docker run --rm -v /config:/.kube/ bitnami/kubectl:latest -n staging rollout restart deploy staging-www.yorqat.com
+          docker run --rm -v /config:/.kube/config bitnami/kubectl:latest -n staging rollout restart deploy staging-www.yorqat.com
