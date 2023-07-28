@@ -37,7 +37,7 @@ jobs:
         uses: ThomasKliszowski/setup-kubectl@v1
         with:
           kube-config: ${{secrets.CLUSTER_CONF}}
-          kube-version: 1.15.0
+          kube-version: 1.25.0
 
       - name: Rollout restart cluster
         run: |
