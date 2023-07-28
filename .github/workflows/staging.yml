@@ -13,7 +13,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.6.0
         with:
-          node-version: 19.9.0
+          node-version: 19
 
       - name: Install dependencies
         run: npm install ci
@@ -33,3 +33,8 @@ jobs:
           chmod 600 /sshkey
           rsync -e "ssh -o StrictHostKeyChecking=no -i /sshkey" --delete -avz --verbose build ${{secrets.PERSISTENT_VOLUME}}/staging-www.yorqat.com.pvc
 
+      - name: Rollout restart cluster
+        run: |
+          echo "${{secrets.CLUSTER_CONF}}" | base64 --decode > /kubeconf
+          chmod 600 /kubeconf
+          docker run --rm -v /kubeconf:/.kube/config bitnami/kubectl:latest -n staging rollout restart deploy staging-www.yorqat.com
