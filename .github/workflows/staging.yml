@@ -15,14 +15,11 @@ jobs:
         with:
           node-version: 19.9.0
 
-      - name: Install pnpm
-        run: npm install -g pnpm
-
       - name: Install dependencies
-        run: pnpm install --force # clean install (not using cache)
+        run: npm install ci
 
       - name: Build node app
-        run: pnpm run build
+        run: npm run build
 
       - name: Include package.json to build
         run: cp package.json build/
