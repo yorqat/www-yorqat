@@ -33,9 +33,13 @@ jobs:
           chmod 600 /sshkey
           rsync -e "ssh -o StrictHostKeyChecking=no -i /sshkey" --delete -avz --verbose build ${{secrets.PERSISTENT_VOLUME}}/staging-www.yorqat.com.pvc
 
+      - name: Install kubectl
+        uses: ThomasKliszowski/setup-kubectl@v1
+        with:
+          kube-config: ${{secrets.CLUSTER_CONF}}
+          kube-version: 1.15.0
+
       - name: Rollout restart cluster
         run: |
-          echo "${{secrets.CLUSTER_CONF}}" | base64 --decode > /config
-          chmod 600 /config
-          ls /config
-          docker run --rm -v /config:/.kube/config bitnami/kubectl:latest -n staging rollout restart deploy staging-www.yorqat.com
+          kubectl -n staging rollout restart deploy staging-www.yorqat.com
+          
