@@ -36,10 +36,9 @@ jobs:
       - name: Install kubectl
         uses: ThomasKliszowski/setup-kubectl@v1
         with:
-          kube-config: ${{secrets.CLUSTER_CONF}}
+          kube-config: "${{secrets.CLUSTER_CONF}}"
           kube-version: 1.15.0
 
       - name: Rollout restart cluster
         run: |
           kubectl -n staging rollout restart deploy staging-www.yorqat.com
-          
