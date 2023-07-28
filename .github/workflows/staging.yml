@@ -9,20 +9,27 @@ jobs:
     steps:
       - name: Checkout from repo
         uses: actions/checkout@v3
+
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.6.0
         with:
           node-version: 19.9.0
+
       - name: Install pnpm
         run: npm install -g pnpm
+
       - name: Install dependencies
         run: pnpm install --force # clean install (not using cache)
+
       - name: Build node app
         run: pnpm run build
+
       - name: Include package.json to build
         run: cp package.json build/
+
       - name: Install rsync  
         uses:  GuillaumeFalourd/setup-rsync@v1.1
+
       - name: Rsync to local staging server
         run: |
           echo "${{secrets.CORNEA_SSH_KEY}}" | base64 --decode > /sshkey
