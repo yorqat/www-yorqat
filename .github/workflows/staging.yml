@@ -49,7 +49,7 @@ jobs:
       - name: Create kube config
         run: |
           mkdir ${HOME}/.kube
-          echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > ${HOME}/.kube/config
+          echo "${{ secrets.CLUSTER_CONFIG }}" | base64 --decode > ${HOME}/.kube/config
 
       - name: Rollout restart cluster
         run: |
