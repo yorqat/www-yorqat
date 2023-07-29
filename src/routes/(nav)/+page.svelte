@@ -42,7 +42,7 @@
 				<!-- <p>Short demos of my design</p> -->
 			</div>
 		</a>
-		<a href="/mockups" style="display:contents">
+		<a href="/sites" style="display:contents">
 			<div class="nav-card">
 				<i>
 					<svg class="nav__card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -51,7 +51,7 @@
 						/></svg
 					>
 				</i>
-				<h1>Mockups</h1>
+				<h1>Sites</h1>
 				<!-- <p>Personal outlook for results</p> -->
 			</div>
 		</a>
