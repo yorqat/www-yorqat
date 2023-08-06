@@ -15,6 +15,7 @@
 		--footer-height: 60px;
 		--clr-text: aliceblue;
 		--clr-text-reading: rgb(187, 189, 229);
+		--clr-subtitle: #b9bbbb;
 		--clr-primary: rgb(25, 23, 32);
 		--clr-secondary: rgb(10, 9, 11);
 		--clr-accent-0: rgb(209, 129, 209);
