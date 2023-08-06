@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: staging-www.yorqat.com
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
