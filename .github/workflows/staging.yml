@@ -3,6 +3,11 @@ on:
     branches:
       - master
       - 'releases/**'
+    paths:
+      - 'package*'
+      - 'k8s/**'
+      - 'src/**'
+      - 'static/**'
 jobs:
   build:
     runs-on: eye-cluster
