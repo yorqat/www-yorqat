@@ -4,6 +4,7 @@ on:
       - master
       - 'releases/**'
     paths:
+      - '.github/**'
       - 'package*'
       - 'k8s/**'
       - 'src/**'
