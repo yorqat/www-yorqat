@@ -7,7 +7,7 @@ A showcase site to prevent people from underestimating my css powers. Access the
 
 ## Nix flakes Enjoyer - contributions
 
-We don't use local installs for dependencies. Install [nix](https://nixos.org/download.html) so we know we're working with the same tooling.
+Don't use local installs for deps. [Use nix](https://nixos.org/download.html) to work with reproducible environment.
 
 ```sh
 $ nix develop
