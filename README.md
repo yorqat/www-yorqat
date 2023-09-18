@@ -1,6 +1,5 @@
 # www-yorqat
-[![.github/workflows/build-test.yml](https://github.com/YorQat/www-yorqat/actions/workflows/build-test.yml/badge.svg?branch=master)](https://github.com/YorQat/www-yorqat/actions/workflows/build-test.yml)
-[![.github/workflows/infrastructure.yml](https://github.com/YorQat/www-yorqat/actions/workflows/infrastructure.yml/badge.svg)](https://github.com/YorQat/www-yorqat/actions/workflows/infrastructure.yml)
+[![.github/workflows/setup-ingress.yml](https://github.com/YorQat/www-yorqat/actions/workflows/setup-ingress.yml/badge.svg)](https://github.com/YorQat/www-yorqat/actions/workflows/setup-ingress.yml) [![.github/workflows/staging.yml](https://github.com/YorQat/www-yorqat/actions/workflows/staging.yml/badge.svg?branch=master)](https://github.com/YorQat/www-yorqat/actions/workflows/staging.yml)
 
 A showcase site to prevent people from underestimating my css powers. Access the live site by clicking [this](https://yorqat.com)
 
