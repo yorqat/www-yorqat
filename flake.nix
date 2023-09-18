@@ -17,7 +17,7 @@
         buildInputs = [
           # pkgs.nodejs
           # You can set the major version of Node.js to a specific one
-          pkgs.nodejs-19_x
+          pkgs.nodejs_20
 
           pkgs.nodePackages.pnpm
           # pkgs.yarn
