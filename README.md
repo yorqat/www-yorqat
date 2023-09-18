@@ -1,7 +1,7 @@
 # www-yorqat
 [![.github/workflows/setup-ingress.yml](https://github.com/YorQat/www-yorqat/actions/workflows/setup-ingress.yml/badge.svg)](https://github.com/YorQat/www-yorqat/actions/workflows/setup-ingress.yml) [![.github/workflows/staging.yml](https://github.com/YorQat/www-yorqat/actions/workflows/staging.yml/badge.svg?branch=master)](https://github.com/YorQat/www-yorqat/actions/workflows/staging.yml)
 
-A showcase site to prevent people from underestimating my css powers. Access the live site by clicking [this](https://yorqat.com)
+A showcase site to prevent people from underestimating my css powers. Access the site [here](https://yorqat.com)
 
 <hr />
 
