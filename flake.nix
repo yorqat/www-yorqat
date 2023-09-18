@@ -15,15 +15,8 @@
     in {
       devShells.default = pkgs.mkShell {
         buildInputs = [
-          # pkgs.nodejs
-          # You can set the major version of Node.js to a specific one
           pkgs.nodejs_20
-
           pkgs.nodePackages.pnpm
-          # pkgs.yarn
-
-          pkgs.nodePackages.typescript
-          pkgs.nodePackages.typescript-language-server
         ];
       };
     });
