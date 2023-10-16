@@ -14,7 +14,7 @@ jobs:
             rsync -e "ssh -o StrictHostKeyChecking=no -i /sshkey" -avz --verbose ${{secrets.PERSISTENT_VOLUME}}/staging-www.yorqat.com.pvc/ build/
             rsync -e "ssh -o StrictHostKeyChecking=no -i /sshkey" -avz --verbose build/ ${{secrets.PERSISTENT_VOLUME}}/prod.www.yorqat.com.pvc/
   
-  refresh_deploy:
+  rollout-restart:
       runs-on: eye-cluster
       needs: build
       steps:
