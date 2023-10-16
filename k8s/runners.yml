@@ -1,0 +1,45 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: runner-www-yorqat
+  namespace: ci-runner
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: runner-www-yorqat
+  template:
+    metadata:
+      labels:
+        app: runner-www-yorqat
+    spec:
+      containers:
+      - name: runner-www-yorqat
+        image: myoung34/github-runner:ubuntu-focal
+        env:
+          - name: LABELS
+            value: 'self-hosted,arm64,eye-cluster'
+          - name: DOCKER_HOST
+            value: 'cornea'
+          - name: RUN_AS_ROOT
+            value: 'true'
+          - name: RUNNER_NAME_PREFIX
+            value: yor-runner
+          - name: ACCESS_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: gh-runner-secret
+                key: pat_token
+          - name: RUNNER_GROUP
+            value: default
+          - name: ORG_RUNNER
+            value: 'false'
+          - name: REPO_URL
+            value: 'https://github.com/YorQat/www-yorqat'
+          - name: EPHEMERAL
+            value: 'true'
+          - name: DISABLE_AUTO_UPDATE
+            value: 'true'
+        ports:
+        - containerPort: 80
