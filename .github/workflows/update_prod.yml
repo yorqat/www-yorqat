@@ -16,7 +16,7 @@ jobs:
   
   rollout-restart:
       runs-on: eye-cluster
-      needs: build
+      needs: rsync
       steps:
       - name: Setup kubectl
         run: |
