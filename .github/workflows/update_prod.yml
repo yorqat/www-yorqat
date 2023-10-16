@@ -13,3 +13,25 @@ jobs:
             chmod 600 /sshkey
             rsync -e "ssh -o StrictHostKeyChecking=no -i /sshkey" -avz --verbose ${{secrets.PERSISTENT_VOLUME}}/staging-www.yorqat.com.pvc/ build/
             rsync -e "ssh -o StrictHostKeyChecking=no -i /sshkey" -avz --verbose build/ ${{secrets.PERSISTENT_VOLUME}}/prod.www.yorqat.com.pvc/
+  
+  refresh_deploy:
+      runs-on: eye-cluster
+      needs: build
+      steps:
+      - name: Setup kubectl
+        run: |
+          apt-get update
+          apt install -y apt-transport-https ca-certificates curl
+          curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/kubernetes-archive-keyring.gpg
+          echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+          apt-get update
+          apt-get install -y kubectl
+
+      - name: Create kube config
+        run: |
+          mkdir ${HOME}/.kube
+          echo "${{ secrets.CLUSTER_CONF }}" | base64 --decode > ${HOME}/.kube/config
+
+      - name: Rollout restart cluster
+        run: |
+          kubectl -n prod rollout restart deploy www.yorqat.com
