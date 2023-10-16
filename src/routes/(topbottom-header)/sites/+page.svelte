@@ -10,7 +10,7 @@
 
 <style>
 	.hacker-img {
-		max-width: 140%;
+		max-width: 100%;
 	}
 
 	.subtitle {

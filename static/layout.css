@@ -1,23 +1,28 @@
-body {
-    background: linear-gradient(-15deg, rgba(92, 67, 99, 1) 1%, rgba(26, 26, 29, 1) 55%);
-	color: var(--clr-text);
-
-    position: relative;
-	min-height: 100svh;
+:global(a) {
+	/* remove link underline */
+	text-decoration: none;
 }
 
-/* footer trick */
-body::after {
-    content: '';
-    display: block;        
-    height: var(--footer-height);
+:global(html, body) {
+	margin: 0em;
+}
+
+:global(*) {
+	box-sizing: border-box;
+	padding: 0;
+}
+
+body {
+	background-color: var(--clr-backdrop);
+	color: var(--clr-text);
+	min-height: 100svh;
 }
 
 a {
 	color: rgb(167, 115, 220);
 }
 
-	::selection {
-		color: var(--clr-primary);
-		background-color: var(--clr-text);
-	}
+::selection {
+	color: var(--clr-primary);
+	background-color: var(--clr-text);
+}

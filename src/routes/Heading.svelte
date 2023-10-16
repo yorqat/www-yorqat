@@ -23,9 +23,8 @@
 	}
 
 	.home-header {
-		background-color: var(--clr-secondary);
-		
-		// required by position:sticky
+		background-color: var(--clr-accent-1);
+
 		top: 0;
 		position: sticky;
 		padding: 1rem 2rem;

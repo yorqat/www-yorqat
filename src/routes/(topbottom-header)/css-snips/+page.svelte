@@ -8,14 +8,14 @@
 
 <section id="backstage">
 	<div class="snips">
-		<a href="/css-snips/login">
-			<iframe src="/css-snips/login" title="" />
+		<a href="/snips/login">
+			<iframe src="/snips/login" title="" />
 		</a>
-		<a href="/css-snips/fancy-menu">
-			<iframe src="/css-snips/fancy-menu" title="" />
+		<a href="/snips/fancy-menu">
+			<iframe src="/snips/fancy-menu" title="" />
 		</a>
 		<a href="/css-snips/mouse-chaser">
-			<iframe src="/css-snips/mouse-chaser" title="" />
+			<iframe src="/snips/mouse-chaser" title="" />
 		</a>
 	</div>
 </section>
@@ -26,19 +26,17 @@
 	}
 
 	a {
-		display: block;
-		margin-inline: auto;
-		margin-block: 2em;
-		max-width: 45em;
+		/* background-color: blanchedalmond; */
+		/* aspect-ratio: 16 / 9; */
 	}
-
+	
 	a iframe {
+		aspect-ratio: 16 / 8;
 		pointer-events: none;
-		width: 100%;
-		aspect-ratio: 16 /9;
+		height: 330%;
 
-
-		--zoom: 0.6;
+		--zoom: 0.3;
+		
 
 		zoom: var(--zoom);
 		-ms-zoom: var(--zoom);
@@ -51,8 +49,12 @@
 	}
 
 	.snips {
-		height: 100%;
-		padding: 2em;
-		background-color: rgb(41, 35, 44);
+		height: fit-content;
+
+		display: flex;
+		flex-wrap: wrap;
+		gap: 5rem;
+		justify-content: space-around;
+		padding-block: 2rem;
 	}
 </style>
